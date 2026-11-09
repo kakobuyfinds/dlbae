@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#17382f">
+  <title>FSBuy spreadsheet | Schuhe, Größen und QC-Fotos</title>
+  <meta name="description" content="Der deutsche Leitfaden zum FSBuy spreadsheet: zehn Kategorien auf Hipobuyfind entdecken, Produktlinks prüfen, Größen vergleichen und Versandkosten einschätzen.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="FSBuy spreadsheet | Schuhe, Größen und QC-Fotos">
+  <meta property="og:description" content="Zehn Kategorien auf Hipobuyfind und praktische Tipps zum Prüfen von Produktlinks, Größen, QC-Fotos und Versandkosten.">
+  <meta property="og:image" content="https://cdn.media.amplience.net/i/sportinglife/25457839_WHITE_0/Mens-Air-Force-1-07-Shoe-WHITE?%24default%24=&amp;fmt=auto">
+  <meta property="og:image:alt" content="Weißer Nike Air Force 1 ’07 in Seitenansicht">
+  <link rel="preconnect" href="https://cdn.media.amplience.net">
+  <!-- Recherche: Zehn Seiten aus der verfügbaren Websuche dienten als Grundlage.
+       Die erste Google-Ergebnisseite war nicht direkt abrufbar. Eine Google-Rangfolge ist daher nicht belegt.
+       fsbuy-spreadsheet.com/ und /fsbuy-link-checking-guide, fsbuy.org/ und /search-guide.html,
+       fsbuy.net/faq.html, qcradar.com/fsbuy-spreadsheet, maisonlooks.com/en/spreadsheet/fsbuy,
+       w2cspreadsheet.com/agents/fsbuy (Suchauszug), fsbuy.homes/guides/fsbuy-sneakers-spreadsheet-guide,
+       alibabaspreadsheet.com/spreadsheets.
+       Die endgültige Veröffentlichungs-URL stand bei der Erstellung nicht fest. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f3eb;
+      --green: #17382f;
+      --muted: #4d5b52;
+      --rust: #8d3d26;
+      --line: #c5c3b7;
+      --white: #fffdf7;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--green); font: 1rem/1.6 system-ui, sans-serif; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.14; overflow-wrap: anywhere; }
+    h1, h2 { font-family: Georgia, serif; font-weight: 700; letter-spacing: -.045em; }
+    h1 { font-size: clamp(2.6rem, 7vw, 5.6rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+    h3 { font-size: 1.2rem; }
+    a { color: inherit; text-underline-offset: .2em; }
+    :where(a, summary):focus-visible { outline: 3px solid #bf6b00; outline-offset: 4px; }
+    img { display: block; width: 100%; height: auto; }
+    .wrap { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    .mast, .footer { background: var(--green); color: var(--white); }
+    .mast .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; padding-block: .85rem; }
+    .mast a, .footer a { font-weight: 750; }
+    .mast span { color: #e7dfcc; font-size: .86rem; }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(1.25rem, 4vw, 3rem); padding-block: clamp(1.6rem, 4vw, 3.5rem); }
+    .kicker { color: var(--rust); font-weight: 750; font-size: .78rem; letter-spacing: .11em; text-transform: uppercase; }
+    .hero h1 { margin-block: .3em .24em; }
+    .lead { max-width: 52ch; color: var(--muted); font-size: 1.1rem; }
+    .hero figure { padding: .75rem; background: var(--white); border: 1px solid var(--line); }
+    .hero img { aspect-ratio: 16 / 10; object-fit: contain; background: white; }
+    figcaption { padding: .55rem .25rem .1rem; font-size: .84rem; color: var(--muted); }
+    .directory { border-block: 1px solid var(--line); padding-block: 1.35rem; }
+    .categories { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .55rem; padding: 0; margin: 1rem 0 0; list-style: none; }
+    .categories a { display: flex; align-items: center; min-height: 3.25rem; height: 100%; padding: .55rem .7rem; border: 1px solid var(--line); background: var(--white); font-weight: 650; overflow-wrap: anywhere; }
+    .categories a:hover { border-color: var(--rust); color: var(--rust); }
+    .section { padding-block: clamp(1.65rem, 5vw, 3.4rem); }
+    .section h2 { margin-bottom: .8rem; }
+    .section > p { max-width: 70ch; color: var(--muted); }
+    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: 1rem; }
+    .gallery figure { border: 1px solid var(--line); background: var(--white); padding: .5rem; }
+    .gallery img { aspect-ratio: 1; object-fit: contain; background: white; }
+    .guides { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .guides article { padding: 1.05rem 1.15rem; border-top: 3px solid var(--rust); background: var(--white); }
+    .guides p { margin-top: .65rem; }
+    .faq { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { padding: .85rem .15rem; font-weight: 700; cursor: pointer; }
+    details p { max-width: 70ch; padding: 0 .15rem .9rem; }
+    .footer .wrap { display: grid; gap: .45rem; padding-block: 1.4rem; }
+    .footer p { max-width: 72ch; color: #e7dfcc; font-size: .88rem; }
+    @media (max-width: 780px) {
+      .categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .hero, .guides { grid-template-columns: 1fr; }
+      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "de",
+    "name": "FSBuy spreadsheet | Schuhe, Größen und QC-Fotos",
+    "description": "Der deutsche Leitfaden zum FSBuy spreadsheet: zehn Kategorien auf Hipobuyfind entdecken, Produktlinks prüfen, Größen vergleichen und Versandkosten einschätzen.",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist ein FSBuy spreadsheet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Damit ist eine nach Kategorien sortierte Liste mit Produktlinks gemeint. Dieser Leitfaden erklärt, wie du solche Listen nutzt. Die zehn Kategorie-Links führen zu Hipobuyfind."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie prüfe ich einen Produktlink aus einer Tabelle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Öffne die Zielseite erneut und gleiche Modell, Farbe und gewählte Größe mit deiner Notiz ab. Speichere bei Taobao-, Weidian- oder 1688-Angeboten nach Möglichkeit auch den Originallink."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche QC-Fotos helfen bei Schuhen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bitte um ein Foto der Einlegesohle mit Maßband, eine Seitenansicht beider Schuhe und klare Aufnahmen von Ferse und Außensohle. QC steht für Qualitätskontrolle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was gehört in die Schätzung der Versandkosten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prüfe Paketgewicht, Außenmaße und die Versandart für dein Zielland. Zum Gesamtpreis können außerdem Inlandsversand, Servicegebühren und mögliche Einfuhrabgaben kommen."
+        }
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/dlbae/">
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap">
+      <a href="https://www.hipobuyfind.com">www.hipobuyfind.com</a>
+      <span>Unabhängiger Einkaufsleitfaden</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="seitentitel">
+      <div>
+        <p class="kicker">Produktrecherche für Schuhe, Mode und Zubehör</p>
+        <h1 id="seitentitel">FSBuy spreadsheet</h1>
+        <p class="lead">Starte mit einer Kategorie auf Hipobuyfind. Halte für interessante Funde den Produktlink, die gewählte Variante und das entscheidende Maß fest. So kannst du Modelle vergleichen, auch wenn sich eine Anzeige später ändert.</p>
+      </div>
+      <figure>
+        <img src="https://cdn.media.amplience.net/i/sportinglife/25457839_WHITE_0/Mens-Air-Force-1-07-Shoe-WHITE?%24default%24=&amp;fmt=auto"
+             width="800" height="500" alt="Weißer Nike Air Force 1 ’07 mit perforierter Zehenpartie in Seitenansicht"
+             loading="eager" fetchpriority="high">
+        <figcaption>Bildbeispiel · Nike Air Force 1 ’07</figcaption>
+      </figure>
+    </section>
+
+    <nav class="directory" aria-labelledby="kategorien">
+      <h2 id="kategorien">Zehn Kategorien auf Hipobuyfind</h2>
+      <ul class="categories">
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Schuhe</a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies und Pullover</a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-Shirts</a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Jacken</a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Hosen und Shorts</a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Kopfbedeckungen</a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Sets</a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Unterwäsche</a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Trikots</a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Accessoires</a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="details">
+      <h2 id="details">Welche Details auf Fotos zählen</h2>
+      <p>Für einen Größenvergleich brauchst du andere Bilder als für eine Kontrolle von Nähten oder Verschlüssen. Die Markenmodelle dienen hier als Bildbeispiele. Prüfe die Verfügbarkeit eines Artikels jeweils auf der Zielseite.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/113J699A0531C888_E01-2?%24default_GH%24=&amp;crop=386%2C161%2C1242%2C1675&amp;extend=0%2C0%2C0%2C250&amp;hei=2000&amp;scale=0.875&amp;wid=1850"
+               width="1850" height="2000" loading="lazy" decoding="async"
+               alt="Graues Dior CD Icon Sweatshirt mit Rundhalsausschnitt">
+          <figcaption>Dior · Bündchen und Saum prüfen</figcaption>
+        </figure>
+        <figure>
+          <img src="https://brandol.jp/upload/save_image/gu-200035-kqwbg-9791-l_1.jpg"
+               width="500" height="500" loading="lazy" decoding="async"
+               alt="Beige Gucci Baseballkappe aus GG-Canvas mit gebogenem Schirm">
+          <figcaption>Gucci · Schirmform und Kappentiefe vergleichen</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/clic-h-bracelet--700001F%208A-worn-3-0-0-800-800_g.jpg"
+               width="800" height="800" loading="lazy" decoding="async"
+               alt="Oranger Hermès Clic H Armreif mit goldfarbenem H-Verschluss">
+          <figcaption>Hermès · Innenumfang und Verschluss prüfen</figcaption>
+        </figure>
+        <figure>
+          <img src="https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/115/456/285/original/1739597_01.jpg.jpeg?action=crop&amp;width=750"
+               width="750" height="750" loading="lazy" decoding="async"
+               alt="Braune Louis Vuitton Keepall Bandoulière 45 mit Monogramm und hellen Ledergriffen">
+          <figcaption>Louis Vuitton · Riemenbefestigung und Reißverschluss prüfen</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ratgeber">
+      <p class="kicker">Vier kurze Ratgeber</p>
+      <h2 id="ratgeber">Vom Fund zur Vergleichsliste</h2>
+      <div class="guides">
+        <article>
+          <h3>FSBuy-Produktlinks auf Aktualität prüfen</h3>
+          <p>Notiere beim Speichern den Produktnamen, den Verkäufer und die genaue Farbvariante. Wenn ein alter Weidian-Produktlink nur noch die Shop-Startseite öffnet, setze die Zeile auf „erneut suchen“. Bei mehreren Varianten hilft die Artikelnummer, etwa wenn ein Taobao-Link nach dem Öffnen wieder die Standardfarbe zeigt. Halte bei einem 1688-Angebot auch die Mindestbestellmenge fest, falls sie angegeben ist.</p>
+        </article>
+        <article>
+          <h3>Größentabellen in Zentimetern lesen</h3>
+          <p>Miss die Einlegesohlenlänge an einem passenden Schuh und vergleiche sie mit dem gleichen Maß beim Angebot. Fußlänge und Einlegesohlenlänge sind unterschiedliche Angaben. Lege bei Kleidung ein passendes Stück flach hin und miss Brustweite, Rückenlänge und Ärmellänge. Bei Hosen helfen Bundweite und Innenbeinlänge. Prüfe bei Sets die Maße von Oberteil und Hose getrennt.</p>
+        </article>
+        <article>
+          <h3>FSBuy-QC-Fotos nach Prüffrage auswählen</h3>
+          <p>Formuliere die offene Frage für jedes Produkt einzeln. Für die Position eines Trikotdrucks hilft eine gerade Frontaufnahme. Bei einer Jacke zeigen Nahaufnahmen die Naht am Ärmel und den Zustand des Reißverschlusses. Für eine Tasche sind Futter und Riemenansatz aufschlussreich. Halte fest, welche Aufnahme zur gewählten Variante gehört und welche Frage offenbleibt.</p>
+        </article>
+        <article>
+          <h3>FSBuy-Versandkosten realistisch einschätzen</h3>
+          <p>Erfasse Artikelpreis, Inlandsversand, mögliche Servicegebühren und internationalen Versand getrennt. Frag nach dem verpackten Gewicht und den Paketmaßen, besonders bei Schuhkartons oder mehreren Jacken. Manche Versanddienste rechnen mit Volumengewicht. Prüfe die Bedingungen für das Zielland und berücksichtige mögliche Einfuhrabgaben in der Gesamtkalkulation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" aria-labelledby="fragen">
+      <h2 id="fragen">Häufige Fragen</h2>
+      <details open>
+        <summary>Was ist ein FSBuy spreadsheet?</summary>
+        <p>Damit ist eine nach Kategorien sortierte Liste mit Produktlinks gemeint. Dieser Leitfaden erklärt, wie du solche Listen nutzt. Die zehn Kategorie-Links führen zu Hipobuyfind.</p>
+      </details>
+      <details>
+        <summary>Wie prüfe ich einen Produktlink aus einer Tabelle?</summary>
+        <p>Öffne die Zielseite erneut und gleiche Modell, Farbe und gewählte Größe mit deiner Notiz ab. Speichere bei Taobao-, Weidian- oder 1688-Angeboten nach Möglichkeit auch den Originallink.</p>
+      </details>
+      <details>
+        <summary>Welche QC-Fotos helfen bei Schuhen?</summary>
+        <p>Bitte um ein Foto der Einlegesohle mit Maßband, eine Seitenansicht beider Schuhe und klare Aufnahmen von Ferse und Außensohle. QC steht für Qualitätskontrolle.</p>
+      </details>
+      <details>
+        <summary>Was gehört in die Schätzung der Versandkosten?</summary>
+        <p>Prüfe Paketgewicht, Außenmaße und die Versandart für dein Zielland. Zum Gesamtpreis können außerdem Inlandsversand, Servicegebühren und mögliche Einfuhrabgaben kommen.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <a href="https://www.hipobuyfind.com">Hipobuyfind öffnen</a>
+      <p>Unabhängiger Einkaufsleitfaden. Die Markennamen und Bilder dienen der Veranschaulichung. Es besteht keine offizielle Verbindung zu FSBuy oder zu den abgebildeten Marken.</p>
+    </div>
+  </footer>
+</body>
+</html>
